@@ -70,21 +70,6 @@ target_link_libraries(realsense_ros_camera
    ${OpenMP_LIBS}
  )
 
-if (CATKIN_ENABLE_TESTING)
-  find_package(rostest REQUIRED)
-
-  add_executable(realsense_ros_tests_camera test/camera_core.cpp)
-  target_link_libraries(realsense_ros_tests_camera
-    ${LIBUSB_1_LIBRARY}
-    ${catkin_LIBRARIES}
-    ${GTEST_LIBRARIES}
-    -lpthread -lm
-    )
-  add_dependencies(realsense_ros_tests_camera ${PROJECT_NAME}_generate_messages_cpp)
-  add_dependencies(realsense_ros_tests_camera ${catkin_EXPORTED_TARGETS})
-endif()
-
-
 install(TARGETS ${PROJECT_NAME}
   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
