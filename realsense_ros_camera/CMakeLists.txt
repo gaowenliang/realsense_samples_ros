@@ -19,6 +19,11 @@ if(OPENMP_FOUND)
  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
 endif()
 
+set(LIBUSB_1_LIBRARY
+    /usr/local/lib/libusb-1.0.so
+)
+message(STATUS "Found libusb 1.0 library: ${LIBUSB_1_LIBRARY}")
+
 find_package(OpenCV 3 REQUIRED)
 #find_package(librealsense 1 REQUIRED) librealsense package currently lacks required pkgconfig file
 
@@ -58,6 +63,7 @@ add_dependencies(${PROJECT_NAME} ${catkin_EXPORTED_TARGETS})
 
 target_link_libraries(realsense_ros_camera
    realsense
+   ${LIBUSB_1_LIBRARY}
    ${catkin_LIBRARIES}
    ${OpenCV_LIBRARIES}
    ${CMAKE_THREAD_LIBS_INIT}
@@ -69,6 +75,7 @@ if (CATKIN_ENABLE_TESTING)
 
   add_executable(realsense_ros_tests_camera test/camera_core.cpp)
   target_link_libraries(realsense_ros_tests_camera
+    ${LIBUSB_1_LIBRARY}
     ${catkin_LIBRARIES}
     ${GTEST_LIBRARIES}
     -lpthread -lm

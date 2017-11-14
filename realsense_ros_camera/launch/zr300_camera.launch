@@ -13,7 +13,4 @@
     <arg name="enable_color" value="true"/>
   </include>
 
-  <node pkg="rqt_image_view" type="rqt_image_view" name="color_viewer" args="/camera/color/image_raw"/>
-  <node pkg="rqt_image_view" type="rqt_image_view" name="depth_viewer" args="/camera/depth/image_raw"/>
-  <node pkg="rqt_image_view" type="rqt_image_view" name="fisheye_viewer" args="/camera/fisheye/image_raw"/>
 </launch>
