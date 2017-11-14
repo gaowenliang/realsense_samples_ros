@@ -6,6 +6,19 @@ ROS Kinetic: [![Build Status](https://travis-ci.org/IntelRealSense/realsense_sam
 ## Features
 These samples illustrate how to develop OSRF&reg; ROS* applications using the Intel® RealSense™ [ZR300](http://click.intel.com/intelr-realsensetm-development-kit-featuring-the-zr300.html) camera for Object Library (OR), Person Library (PT), and Simultaneous Localization And Mapping (SLAM).
 
+## Install new USB3.1 dirver
+
+`cd` to folder libusb-1.0.21
+
+```
+./configure
+make
+make check
+sudo make install
+
+```
+
+
 ## Installation Instructions
 
 The Intel RealSense SDK for Linux is used as the base for these ROS node.  Full installation information for the SDK is available at https://software.intel.com/sites/products/realsense/intro. Here is the quick setup guide:
